@@ -70,7 +70,7 @@ class AllJobs extends Component {
   getProfileData = async () => {
     this.setState({apiJobStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
-    const url = 'https://api.ccbp.in/profile'
+    const url = 'https://apis.ccbp.in/profile'
     const option = {
       method: 'GET',
       headers: {
@@ -79,7 +79,6 @@ class AllJobs extends Component {
     }
     const response = await fetch(url, option)
     const data = await response.json()
-    console.log(data)
     if (response.ok === true) {
       const profile = data.profile_details
       const updatedProfileData = {
@@ -87,7 +86,6 @@ class AllJobs extends Component {
         profileImageUrl: profile.profile_image_url,
         shortBio: profile.short_bio,
       }
-      console.log(updatedProfileData)
       this.setState({
         profileData: updatedProfileData,
         apiStatus: apiStatusConstants.success,
@@ -102,12 +100,12 @@ class AllJobs extends Component {
     const {activeCheckBoxList, activeSalaryRange, searchInput} = this.state
     const type = activeCheckBoxList.join(',')
     const jwtToken = Cookies.get('jwt_token')
-    const url = `https://api.ccbp.in/jobs?employment_type=${type}&minimum_package=${activeSalaryRange}&search=${searchInput}`
+    const url = `https://apis.ccbp.in/jobs?employment_type=${type}&minimum_package=${activeSalaryRange}&search=${searchInput}`
     const option = {
-      header: {
+      method: 'GET',
+      headers: {
         Authorization: `Bearer ${jwtToken}`,
       },
-      method: 'GET',
     }
     const response = await fetch(url, option)
     const data = await response.json()

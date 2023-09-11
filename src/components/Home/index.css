@@ -1,5 +1,5 @@
 .home-container {
-  background-color: url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png');
+  background-image: url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png');
   background-size: cover;
   height: 100vh;
   padding: 40px;

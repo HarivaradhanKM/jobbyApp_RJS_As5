@@ -2,7 +2,7 @@
   background-color: #000;
   padding: 40px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   flex-grow: 1;
 }

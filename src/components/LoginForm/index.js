@@ -28,9 +28,9 @@ class LoginForm extends Component {
     event.preventDefault()
     const {username, password} = this.state
     const userDetails = {username, password}
-    const url = 'https://api.ccbp.in/login'
+    const url = 'https://apis.ccbp.in/login'
     const options = {
-      method: 'Post',
+      method: 'POST',
       body: JSON.stringify(userDetails),
     }
     const response = await fetch(url, options)
@@ -54,6 +54,7 @@ class LoginForm extends Component {
         <form className="login-form-container" onSubmit={this.onSubmitForm}>
           <div className="form-logo-container">
             <img
+              className="login-form-logo"
               alt="website logo"
               src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
             />
